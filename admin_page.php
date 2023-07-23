@@ -1,9 +1,5 @@
 <?php
-// admin_form.php
-
 session_start();
-
-// Add your database connection and other necessary functions here
 $conn = mysqli_connect('localhost', 'root', '', 'userdb1');
 
 if (!isset($_SESSION['name'])) {
@@ -13,9 +9,11 @@ if (!isset($_SESSION['name'])) {
 
 $name = $_SESSION['name'];
 $_SESSION['name']=$name;
-// Retrieve user information from the database
-$select = "SELECT * FROM user_form WHERE name='$name'";
-$result = $conn->query($select);
+$stmt = $conn->prepare("SELECT age, dob, pno FROM user_form WHERE name = ?");
+$stmt->bind_param("s", $name);
+$stmt->execute();
+$result = $stmt->get_result();
+$age = $dob = $pno = '';
 if ($result->num_rows > 0) {
    $data = $result->fetch_assoc();
    $age = $data['age'];
