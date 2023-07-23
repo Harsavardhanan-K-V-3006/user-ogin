@@ -1,0 +1,54 @@
+<!-- update_form.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Update Your Profile</title>
+   <link rel="stylesheet" href="./css/update_form.css">
+</head>
+
+<body>
+   <div class="container">
+      <div class="content">
+         <h2>Update Your Profile</h2>
+         <form id="updateForm">
+            <span id="error-msg-container"></span>
+            <br><input type="text" name="age" required placeholder="enter your age">
+            <br><input type="date" name="dob" required placeholder="enter your date of birth">
+            <br><input type="tel" name="pno" onkeypress="return onlyNumberKey(event)" placeholder="enter your phone number" />
+            <br><input type="submit" name="submit" value="Update" class="form-btn btn-lg">
+         </form>
+      </div>
+   </div>
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+      $(document).ready(function () {
+         $('#updateForm').submit(function (event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+               type: 'POST',
+               url: 'update_form.php',
+               data: formData,
+               dataType: 'json',
+               success: function (response) {
+                  if (response.success) {
+                     window.location.href = 'admin_page.php';
+                  } else {
+                     $('#error-msg-container').html('<span class="error-msg">'+ response.error + '</span>');
+                  }
+               },
+               error: function (xhr, status, error) {
+                  $('#error-msg-container').html('<span class="error-msg">An error occurred during update: ' + error + '</span>');
+               }
+            });
+         });
+      });
+   </script>
+</body>
+
+</html>

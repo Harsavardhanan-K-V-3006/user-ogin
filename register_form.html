@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Registration Form</title>
+   <link rel="stylesheet" href="./css/register_form.css">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <form class="cont" action="" method="post">
+           <h3>register now</h3>
+           <input type="text" name="name" required placeholder="enter your name">
+           <input type="email" name="email" required placeholder="enter your email">
+           <input type="password" name="password" required placeholder="enter your password">
+           <input type="password" name="cpassword" required placeholder="confirm your password">
+           <input type="text" name="age" required placeholder="enter your age">
+           <input type="date" name="dob" required placeholder="enter your date of birth">
+           <input type="tel" name="pno" onkeypress="return onlyNumberKey(event)" placeholder="enter your phone number"/>
+           <input type="submit" name="submit"  value="register now" class="form-btn">
+           <p>already have an account? <a href="login_form.html">login now</a></p>
+        </form>
+   </div>
+   <script>
+      // Handle form submission using AJAX
+      $(document).ready(function () {
+         $('.cont').submit(function (event) {
+            event.preventDefault();
+            var formData = $(this).serializeArray();
+            console.log(formData);
+            $.ajax({
+               type: 'POST',
+               url: 'register.php',
+               data: formData,
+               dataType: 'json',
+               success: function (response) {
+                  if (response.success) {
+                     // Registration successful, handle success here
+                     alert('Registration successful! Redirecting to login page...');
+                     window.location.href = 'login_form.html';
+                  } else {
+                     // Registration failed, handle error here
+                     alert('Registration failed: ' + response.error);
+                  }
+               },
+               error: function (xhr, status, error) {
+                  alert('An error occurred during-registration: ' + error);
+                  console.log(xhr, status, error)
+               }
+            });
+         });
+      });
+   </script>
+</body>
+</html>

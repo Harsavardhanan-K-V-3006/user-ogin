@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Cambria', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.form-container{
+    min-height: 45vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:2vw;
+    padding-bottom: 2.5vw;
+    background: #eee;
+.form{
+    padding:20px;
+   border-radius: 2vw;
+   box-shadow: 0 2vw 4vw rgba(0,0,0,.1);
+   background: #fff;
+   text-align: center;
+   width: 150vw;
+}
+h3{
+    font-size: 2vw;
+    text-transform: uppercase;
+    margin-bottom: 2vw;
+    color:black;
+ }
+}
+.form-container form input,
+.form-container form select{
+   width: 100%;
+   padding:1vw 2vw;
+   font-size: 2vw;
+   margin:1.5vw 0;
+   border-radius: 2vw;
+   border-color: #0096ff;
+}
+
+.form-container form select option{
+   border-color: black;
+}
+
+.form-container form .form-btn{
+   background:black;
+   color:#ffff;
+   text-transform: capitalize;
+   font-size: 3vw;
+   cursor: pointer;
+}
+
+
+.form-container form p{
+   margin-top: 1vw;
+   font-size: 2vw;
+   color:#333;
+}
+
+.form-container form p a{
+    color:#0096ff;
+}
+
+.form-container form .error-msg{
+   margin:3.5vw 0;
+   display: block;
+   background: crimson;
+   color:#fff;
+   text-align: center;
+   border-radius: 2vw;
+   font-size: 2vw;
+   padding:2vw;
+}
+
+ 

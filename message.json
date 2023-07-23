@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Kumar",
+        "email": "kumar@gmail.com",
+        "password": "123123",
+        "age": "18",
+        "dob": "1973-10-18",
+        "pno": "1234567890"
+    },
+    {
+        "name": "teeks",
+        "email": "teeks@gmail.com",
+        "password": null,
+        "age": "18",
+        "dob": "2023-07-23",
+        "pno": "1234567890"
+    },
+    {
+        "name": "aa",
+        "email": "aa@gmail.com",
+        "password": null,
+        "age": "18",
+        "dob": "2023-07-23",
+        "pno": "1234567890"
+    },
+    {
+        "name": "bb",
+        "email": "bb@gmail.com",
+        "password": null,
+        "age": "18",
+        "dob": "2023-07-23",
+        "pno": "1234567890"
+    },
+    {
+        "name": "cc",
+        "email": "cc@gmail.com",
+        "password": null,
+        "age": "18",
+        "dob": "2010-10-10",
+        "pno": "1234567890"
+    },
+    {
+        "name": "dd",
+        "email": "dd@gmail.com",
+        "password": null,
+        "age": "18",
+        "dob": "2020-10-10",
+        "pno": "1234567890"
+    },
+    {
+        "name": "ff",
+        "email": "ff@gmail.com",
+        "password": null,
+        "age": "18",
+        "dob": "2009-10-10",
+        "pno": "1234567890"
+    },
+    {
+        "name": "gg",
+        "email": "gg@gmail.com",
+        "password": "123",
+        "age": "18",
+        "dob": "2009-10-10",
+        "pno": "1234567890"
+    }
+]

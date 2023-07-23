@@ -1,0 +1,62 @@
+<!-- login_form.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login Form</title>
+   <!-- custom css file link  -->
+   
+   <link rel="stylesheet" href="./css/login_form.css">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+   <div class="form-container">
+      <form class="form-group" id="loginForm" action="" method="post">
+         <h3>login now</h3>
+         <span id="error-msg" class="error-msg"></span>
+         <span id="error-msg" class="error-msg"></span>
+         <input type="email" name="email" required placeholder="enter your email">
+         <input type="password" name="password" required placeholder="enter your password">
+         <input type="submit" name="submit" value="login now" class="form-btn btn-lg">
+         <p>don't have an account? <a href="register_form.html">register now</a></p>
+      </form>
+   </div>
+
+   
+   <script>
+      // Handle form submission using AJAX
+      $(document).ready(function () {
+         $('#loginForm').submit(function (event) {
+            event.preventDefault();
+            var formData = $(this).serializeArray();
+            $.ajax({
+               type: 'POST',
+               url: 'login.php',
+               data: formData,
+               dataType: 'json',
+               success: function (response) {
+                  if (response.success) {
+                     // Login successful, redirect to admin page
+                     window.location.href = 'admin_page.php?'+response.name;
+                  } else {
+                     // Login failed, show error message
+                     $('#error-msg').text(response.error);
+                  }
+               },
+               error: function (xhr, status, error) {
+                  $('#error-msg').text('An error occurred during login: ' + error);
+               }
+            });
+         });
+      });
+   </script>
+
+</body>
+
+</html>

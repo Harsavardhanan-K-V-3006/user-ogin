@@ -1,0 +1,64 @@
+<!-- admin_form.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Admin Page</title>
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="./css/admin_form.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+   <div class="container">
+      <br>
+      <div class="content">
+         <h1>welcome <span id="username"></span></h1>
+         <a href="logout.php" class="btn btn-lg">logout</a>
+         <br>
+         <br>
+         <form action="" class="up" >
+         <label for="">AGE:</label> <span id="age"></span>
+         <br>
+         <label for="">DATE OF BIRTH:</label> <span id="dob"></span>
+         <br>
+         <label for="">CONTACT NO:</label><span id="pno"></span>
+         <br>
+         <br>
+         <a href="update_form.html" name='ups' class="btn btn-lg">Update profile</a>
+
+      </form>
+      </div>
+   </div>
+
+   <script>
+      // Fetch user data using REST API
+      $(document).ready(function () {
+         $('.up').ups(function (event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+         $.ajax({
+            type: 'GET',
+            url: 'user_data.php',
+            dataType: 'json',
+            success: function (data) {
+               $('#username').text(data.name);
+               $('#age').text(data.age);
+               $('#dob').text(data.dob);
+               $('#pno').text(data.pno);
+            },
+            error: function (xhr, status, error) {
+               alert('Error occurred while fetching user data: ' + error);
+            }
+         });
+      });});
+   </script>
+</body>
+
+</html>
